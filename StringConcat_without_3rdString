@@ -1,0 +1,52 @@
+#include<conio.h>
+#include<iostream>
+
+using namespace std;
+
+void stcncat (char *f_str, char *s_str);
+
+//main function
+int main()
+{
+char *f_str=new char[50];
+char *s_str=new char[50];
+
+
+cout<<"\n Enter FIRST string : ";
+cin.getline(f_str,50);
+cout<<"\n Enter SECOND string : ";
+cin.getline(s_str,50);
+
+
+stcncat(f_str,s_str);
+
+
+cout<<"\n Concatenated string : "<<f_str;
+
+
+return 0;
+}
+
+
+void stcncat (char *f_str, char *s_str)
+{
+int s_length = 0,f_length = 0;
+
+//Calculating the length of first string
+while(*(f_str+f_length)!='\0')
+{
+   f_length++; //incrementing length till reaching NULL value
+}
+
+cout<<"The length of the first string : "<< f_length;
+
+//Calculating the length of second string
+while(*(s_str+s_length)!='\0')
+{
+*(f_str+f_length) = *(s_str+s_length);
+s_length++;
+f_length++;
+}
+cout<<"\n The length of the concatenated string : "<< f_length;
+*(f_str+f_length) = '\0';
+}
